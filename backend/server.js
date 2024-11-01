@@ -19,9 +19,6 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.use('/api', petsRouter);
 
-// const serverPort = process.env.PORT || 5000;
-// app.listen(serverPort, () => console.log(`Server running on port ${serverPort}`));
-// app.listen(serverPort, () => console.log(`Server running on port ${PORT}`));
 // Import Routes
 const authRouter = require('./routes/auth');
 
@@ -34,7 +31,7 @@ app.use("/pets", petsRouter); // Add this line to enable the pets routes
 
 app.get('/', (req, res) => res.send('API is running...'));
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });

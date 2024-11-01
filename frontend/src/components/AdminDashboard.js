@@ -49,7 +49,7 @@ const AdminDashboard = () => {
 
       try {
         const response = await axios.post(
-          "http://localhost:5000/pets",
+          "http://localhost:3001/api/addPet",
           formData,
           {
             headers: {

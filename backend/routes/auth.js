@@ -13,7 +13,7 @@ router.post("/register", async (req, res) => {
     if (user) {
       return res.status(400).json({ msg: "User already exists" });
     }
-    user = new User({ username, email, password });
+    user = new User({ username, email, password, role: 'admin' });
     const salt = await bcrypt.genSalt(10);
     user.password = await bcrypt.hash(password, salt);
     await user.save();
@@ -51,7 +51,7 @@ router.post("/login", async (req, res) => {
       expiresIn: "1d",
     });
 
-    res.json({ token, role: user.role }); // Return role along with token
+    res.json({ token, role: 'admin' }); // Return role along with token
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server error");
